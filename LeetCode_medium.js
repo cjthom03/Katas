@@ -11,5 +11,7 @@
 //  * @return {ListNode}
 //  */
 var addTwoNumbers = function(l1, l2) {
+  while(l1.next !== null && l2.next !== null) {
 
+  }
 };
