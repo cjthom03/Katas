@@ -16,3 +16,17 @@ def reverse(x)
     result = nums.reduce(:+)
     result > 2**31 ? 0 : (result * sign)
 end
+
+# ===================================================================
+# ===================================================================
+
+
+# @param {Integer[]} nums
+# @param {Integer} target
+# @return {Integer}
+def search_insert(nums, target)
+    nums.each_with_index do |num, idx|
+        return idx if target <= num
+    end
+    return nums.length
+end
