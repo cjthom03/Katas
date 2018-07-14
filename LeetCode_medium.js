@@ -44,6 +44,7 @@ var handleOverflow = function(node) {
 // Given "abcabcbb", the answer is "abc", which the length is 3.
 // Given "bbbbb", the answer is "b", with the length of 1.
 // Given "pwwkew", the answer is "wke", with the length of 3.
+// Given "dvdf", the answer is 'vdf', with the length of 3
 // Note that the answer must be a substring,
 // "pwke" is a subsequence and not a substring.
 //
@@ -53,19 +54,29 @@ var handleOverflow = function(node) {
 //  */
 var lengthOfLongestSubstring = function(s) {
 
-//     create a values hash
-//     create a counter var & a longest var (int)
-//     iterate over the letters in the string
-//     check if the letter is already in the hash
-//          if it is:
-//                reset the hash (with the current letter as a value)
-//                reset the counter to 1
-//          other wise:
-//                 add the letter to the hash
-//                 increment the counter
-//      compare the counter to the longest var, reset longest if need be
-//     return longest
+//    create a values hash, 'start' pointer = 0, 'longest' = 0
 
+//    iterate over the letters in the string
+//    check if the letter is already in the hash
+//      if the value/idx is >= to start
+//        move the start point to right after the first repeated letter
+//        start += index of repeated letter (from hash) + 1
+//    add the letter:index to the hash
+//    measure the current length, reset longest if needed
+    let lettersHash = {};
+    let start = 0;
+    let longest = 0;
 
+    for(let i = 0; i < s.length; i++) {
+        let letter = s[i];
+
+        if(lettersHash[letter] >= start) {
+            start = lettersHash[letter] + 1;
+        }
+        lettersHash[letter] = i;
+        let currentLength = i - start + 1;
+        longest = Math.max(currentLength, longest);
+    }
+    return longest;
 };
 //
