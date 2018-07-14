@@ -38,5 +38,34 @@ var handleOverflow = function(node) {
 // ===================================================================
 // ===================================================================
 
+// Given a string, find the length of the longest substring without repeating characters.
+//
+// Examples:
+// Given "abcabcbb", the answer is "abc", which the length is 3.
+// Given "bbbbb", the answer is "b", with the length of 1.
+// Given "pwwkew", the answer is "wke", with the length of 3.
+// Note that the answer must be a substring,
+// "pwke" is a subsequence and not a substring.
+//
+// /**
+//  * @param {string} s
+//  * @return {number}
+//  */
+var lengthOfLongestSubstring = function(s) {
 
-// 
+//     create a values hash
+//     create a counter var & a longest var (int)
+//     iterate over the letters in the string
+//     check if the letter is already in the hash
+//          if it is:
+//                reset the hash (with the current letter as a value)
+//                reset the counter to 1
+//          other wise:
+//                 add the letter to the hash
+//                 increment the counter
+//      compare the counter to the longest var, reset longest if need be
+//     return longest
+
+
+};
+//
