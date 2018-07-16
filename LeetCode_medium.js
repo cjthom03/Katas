@@ -80,3 +80,71 @@ var lengthOfLongestSubstring = function(s) {
     return longest;
 };
 //
+
+
+// ===================================================================
+// ===================================================================
+
+// Given a linked list, remove the n-th node from the end of list and return its head.
+//
+// Example:
+// Given linked list: 1->2->3->4->5, and n = 2.
+// After removing the second node from the end, the linked list becomes 1->2->3->5.
+//
+// Note: Given n will always be valid.
+// Follow up:Could you do this in one pass?
+
+
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} n
+ * @return {ListNode}
+ */
+var removeNthFromEnd = function(head, n) {
+  // create a queue of size n + 1
+  // iterate over the list completely, filling the queue
+  // Edge case, if n >= list.length / reset pointers and return head.next
+  // else, reset the pointers for the node @ index 1
+  // return head
+
+  const queue = [];
+  const queueSize = n + 1;
+  let node = head;
+
+  while (node !== null) {
+      queue.push(node);
+      if(queue.length > queueSize) { queue.shift(); }
+      node = node.next;
+  }
+
+  if(queue.length <= n) {
+      node = head;
+      head = head.next;
+      node.next = null;
+      return head;
+  }
+
+  queue[0].next = queue[2];
+  queue[1].next = null;
+
+  return head;
+};
+
+
+
+
+
+
+
+
+
+
+//
