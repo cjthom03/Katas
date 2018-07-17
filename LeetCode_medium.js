@@ -158,7 +158,7 @@ var removeNthFromEnd = function(head, n) {
 // Example 1:
 // Input: s = "PAYPALISHIRING", numRows = 3
 // Output: "PAHNAPLSIIGYIR"
-
+  // [P, A, H, N], [A, P, L, S, I, I, G], [Y, I, R]
 
 // Example 2://
 // Input: s = "PAYPALISHIRING", numRows = 4
@@ -171,7 +171,47 @@ var removeNthFromEnd = function(head, n) {
 // Y A   H R
 // P     I
 
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+  // Create an array of n empty strings, where n = numRows
+  // Create a variable to track the index in the string
+  // Loop for the length of the string
+  // From 0 - numRows, concat letter at index onto each string
+    // if index > string.length, break
+    // index ++
+  // From numRows - 2 to 0, concat letter at index onto each string
+    // check for break condition && index ++
+  // Join the strings together, return
 
+  let idx = 0;
+  const strings = new Array(numRows);
+  for(let i = 0; i < numRows; i ++) {
+      strings[i] = "";
+  }
+
+  while(idx < s.length) {
+      for(let i = 0; i < numRows; i++) {
+          if(idx >= s.length) { break }
+          let newString = strings[i].concat(s[idx]);
+          strings[i] = newString;
+          idx++;
+      }
+
+      for(let i = numRows - 2; i > 0; i--) {
+          if(idx >= s.length) { break }
+          let newString = strings[i].concat(s[idx]);
+          strings[i] = newString;
+          idx++;
+      }
+  }
+
+  return strings.join("");
+
+};
 
 
 
