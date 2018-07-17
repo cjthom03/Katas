@@ -195,14 +195,14 @@ var convert = function(s, numRows) {
 
   while(idx < s.length) {
       for(let i = 0; i < numRows; i++) {
-          if(idx >= s.length) { break }
+          if(idx >= s.length) { break; }
           let newString = strings[i].concat(s[idx]);
           strings[i] = newString;
           idx++;
       }
 
       for(let i = numRows - 2; i > 0; i--) {
-          if(idx >= s.length) { break }
+          if(idx >= s.length) { break; }
           let newString = strings[i].concat(s[idx]);
           strings[i] = newString;
           idx++;
