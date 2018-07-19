@@ -103,11 +103,11 @@ var lengthOfLongestSubstring = function(s) {
  *     this.next = null;
  * }
  */
-/**
- * @param {ListNode} head
- * @param {number} n
- * @return {ListNode}
- */
+// /**
+//  * @param {ListNode} head
+//  * @param {number} n
+//  * @return {ListNode}
+//  */
 var removeNthFromEnd = function(head, n) {
   // create a queue of size n + 1
   // iterate over the list completely, filling the queue
@@ -171,11 +171,11 @@ var removeNthFromEnd = function(head, n) {
 // Y A   H R
 // P     I
 
-/**
- * @param {string} s
- * @param {number} numRows
- * @return {string}
- */
+// /**
+//  * @param {string} s
+//  * @param {number} numRows
+//  * @return {string}
+//  */
 var convert = function(s, numRows) {
   // Create an array of n empty strings, where n = numRows
   // Create a variable to track the index in the string
@@ -214,6 +214,31 @@ var convert = function(s, numRows) {
 };
 
 
+// ===================================================================
+// ===================================================================
+
+// Given a collection of distinct integers, return all possible permutations.
+//
+// Example:
+
+// Input: [1, 2]
+// Output: [
+//   [1, 2], [2, 1]
+// ]
+//
+// Input: [1,2,3]
+// Output:
+// [
+//   [1,2,3], [1,3,2], [2,1,3],
+//   [2,3,1], [3,1,2], [3,2,1]
+// ]
+
+//  @param {number[]} nums
+//  @return {number[][]}
+//
+var permute = function(nums) {
+
+};
 
 
 //
