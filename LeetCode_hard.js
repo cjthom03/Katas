@@ -19,7 +19,7 @@
  * @return {number}
  */
 var firstMissingPositive = function(nums) {
-    if(!nums.length) {return 1}
+    if(!nums.length) { return 1; }
     let arr = new Array(Math.max(...nums) + 1);
     arr[0] = true;
 
@@ -29,7 +29,7 @@ var firstMissingPositive = function(nums) {
     }
 
     for(let j=0; j < arr.length; j++) {
-        if(arr[j] !== true) { return j }
+        if(arr[j] !== true) { return j; }
     }
 
     return arr.length;
