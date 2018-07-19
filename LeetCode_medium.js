@@ -237,6 +237,22 @@ var convert = function(s, numRows) {
 //  @return {number[][]}
 //
 var permute = function(nums) {
+  if(!nums.length) { return [[]]; }
+
+  let prevPerms = permute(nums.slice(0, nums.length - 1));
+  let lastEl = nums[nums.length - 1];
+  let allPerms = [];
+
+  for (let i = 0; i < prevPerms.length; i++) {
+    for (let j = 0; j <= prevPerms[i].length; j++) {
+      // dup the prevPerms
+      let prevPermsDup = prevPerms[i].slice(0);
+      prevPermsDup.splice(j, 0, lastEl);
+      allPerms.push(prevPermsDup);
+    }
+  }
+
+  return allPerms;
 
 };
 
