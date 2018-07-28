@@ -9,21 +9,13 @@
 # Assume that there are no spaces or that spaces are part of the character count?
 
 def check_permutations(str1, str2)
+  return false unless str1.length == str2.length
   letters = Hash.new
-  str1.each_char do |n|
-    if letters[n]
-      letters[n].first += 1
-    else
-      letters[n] = [1,0]
-    end
-  end
-
-  str2.each_char do |m|
-    if letters[m]
-      letters[m].last += 1
-    else
-      return false
-    end
+  str1.length.times do |idx|
+    n = str1[idx]
+    m = str2[idx]
+    letters[n] ? letters[n][0] += 1 : letters[n] = [1, 0]
+    letters[m] ? letters[m][1] += 1 : letters[m] = [0, 1]
   end
 
   letters.each do |_, (n,m)|
@@ -38,8 +30,8 @@ end
 puts "======================================================="
 puts "Tests for 1.2 Check Permutations\n"
 test1 = check_permutations("string", "string")
-test2 = check_permutations("abc", "cba")
-test3 = check_permutations("abc ", "abb ")
+test2 = check_permutations("abcba", "cbaba")
+test3 = check_permutations("abc ", "ab")
 
 puts (test1 == true ? "Pass" : "FAIL!!")
 puts (test2 == true ? "Pass" : "FAIL!!")
