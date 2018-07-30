@@ -25,3 +25,7 @@ const bsearch = (array, target) => {
 // bsearch([1,2,3,4,5], 4) => 4
 // bsearch([1,2,3,4,5], 1) => 0
 // bsearch([1,2,3,4,5], 0) => -1
+
+const quicksort = () => {
+
+};

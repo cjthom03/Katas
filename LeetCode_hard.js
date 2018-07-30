@@ -39,6 +39,50 @@ var firstMissingPositive = function(nums) {
 // =====================================================================
 // =====================================================================
 
+// Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.
+//
+// k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.
+//
+// Example:
+//
+// Given this linked list: 1->2->3->4->5
+//
+// For k = 2, you should return: 2->1->4->3->5
+//
+// For k = 3, you should return: 3->2->1->4->5
+//
+// Note:
+//
+// Only constant extra memory is allowed.
+// You may not alter the values in the list's nodes, only nodes itself may be changed.
 
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} k
+ * @return {ListNode}
+ */
+var reverseKGroup = function(head, k) {
+  // create a divider node
+  // create pointer variable to newHead
+  // attach the divider to the list as the head node
+
+  // go down the linked list, starting from the divider, k times
+  //   if you get to the end of the list, break -- you are done
+  // if there is no newHead, set the newHead and have it point to the divider
+  // 'remove' that node from its usual place in the list
+  // decrement k
+  // repeat
+
+
+  // return newHead
+
+};
 
 //
