@@ -26,6 +26,27 @@ const bsearch = (array, target) => {
 // bsearch([1,2,3,4,5], 1) => 0
 // bsearch([1,2,3,4,5], 0) => -1
 
-const quicksort = () => {
+const quickSort = array => {
+  if(array.length <= 1) { return array; }
+
+  const pivot = array[0];
+  const left = array.slice(1).filter(el => el <= pivot);
+  const right = array.slice(1).filter(el => el > pivot);
+
+  return quickSort(left).concat([pivot]).concat(quickSort(right));
+
+};
+
+quickSort([1,2,3,4,5]);
+quickSort([5,4,3,2,1]);
+quickSort([5,2,7,10,-1,0]);
+quickSort([20, 1000, 2, 18, 9, 30, 1, 1, 1000]);
+quickSort([]);
+
+const mergeSort = () => {
+
+};
+
+const heapSort = () => {
 
 };
