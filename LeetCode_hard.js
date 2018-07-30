@@ -56,33 +56,62 @@ var firstMissingPositive = function(nums) {
 // Only constant extra memory is allowed.
 // You may not alter the values in the list's nodes, only nodes itself may be changed.
 
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} head
- * @param {number} k
- * @return {ListNode}
- */
+
+ // Definition for singly-linked list.
+  function ListNode(val) {
+      this.val = val;
+      this.next = null;
+ }
+
+ // * @param {ListNode} head
+ // * @param {number} k
+ // * @return {ListNode}
+ // */
 var reverseKGroup = function(head, k) {
   // create a divider node
   // create pointer variable to newHead
   // attach the divider to the list as the head node
 
-  // go down the linked list, starting from the divider, k times
-  //   if you get to the end of the list, break -- you are done
-  // if there is no newHead, set the newHead and have it point to the divider
-  // 'remove' that node from its usual place in the list
-  // decrement k
-  // repeat
+  const divider = new ListNode('divider');
+  divider.next = head;
 
+  let newHead;
+  let newTail;
+  let prevNode;
+  let currentNode;
 
-  // return newHead
+  while (true) {
 
+    for (let i = k; i > 0; i--) {
+      currentNode = divider;
+
+      for (let n = 0; n < i; n++) {
+        prevNode = currentNode;
+        currentNode = currentNode.next;
+        if(currentNode === null) {
+          if(!newTail) {
+            return head; 
+          } else {
+            // remove the divider
+            newTail.next = divider.next;
+            return newHead;
+          }
+        }
+      }
+
+      prevNode.next = currentNode.next;
+      currentNode.next = divider;
+
+      if (newHead === undefined) {
+        newHead = currentNode;
+        newTail = currentNode;
+      } else {
+        newTail.next = currentNode;
+        newTail = currentNode;
+      }
+
+    }
+  }
 };
 
 //
