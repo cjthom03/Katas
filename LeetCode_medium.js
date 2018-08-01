@@ -285,11 +285,7 @@ var swapPairs = function(head) {
     let left = dummyHead;
     let mid = head;
 
-    while(mid.next !== null){
-      console.log("left", left)
-      console.log("mid", mid)
-      console.log("right", mid.next)
-      console.log("--------------------------------------------------------------")
+    while(mid !== null && mid.next !== null){
       let right = mid.next;
       left.next = right;
       mid.next = right.next;
@@ -304,18 +300,15 @@ var swapPairs = function(head) {
     return dummyHead.next;
 
 };
+//
+// let head = new ListNode(1)
+// let two = new ListNode(2)
+// let three = new ListNode(3)
+// let four = new ListNode(4)
+// head.next = two
+// two.next = three
+// three.next = four
+// four.next = null
 
-let head = new ListNode(1)
-let two = new ListNode(2)
-let three = new ListNode(3)
-let four = new ListNode(4)
-head.next = two
-two.next = three
-three.next = four
-four.next = null
-
-[ D, 1H, 2, 3, 4]
-left = D
-mid = 1H
 
 //
