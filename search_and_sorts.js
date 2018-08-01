@@ -47,6 +47,12 @@ const mergeSort = () => {
 
 };
 
+mergeSort([1,2,3,4,5]);
+mergeSort([5,4,3,2,1]);
+mergeSort([5,2,7,10,-1,0]);
+mergeSort([20, 1000, 2, 18, 9, 30, 1, 1, 1000]);
+mergeSort([]);
+
 const heapSort = () => {
 
 };

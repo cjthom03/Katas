@@ -257,4 +257,65 @@ var permute = function(nums) {
 };
 
 
+// ===================================================================
+// ===================================================================
+
+// Given a linked list, swap every two adjacent nodes and return its head.
+//
+// Example:
+// Given 1->2->3->4, you should return the list as 2->1->4->3.
+
+// Notes:
+// Your algorithm should use only constant extra space.
+// You may not modify the values in the list's nodes, only nodes itself may be changed.
+
+
+ // Definition for singly-linked list.
+ function ListNode(val) {
+      this.val = val;
+      this.next = null;
+  }
+
+var swapPairs = function(head) {
+    //create a dummy node, set it's next = head
+    //initialize 'left', 'mid', 'right' pointers to dummy, head & head.next
+    const dummyHead = new ListNode('dummy');
+    dummyHead.next = head;
+
+    let left = dummyHead;
+    let mid = head;
+
+    while(mid.next !== null){
+      console.log("left", left)
+      console.log("mid", mid)
+      console.log("right", mid.next)
+      console.log("--------------------------------------------------------------")
+      let right = mid.next;
+      left.next = right;
+      mid.next = right.next;
+      right.next = mid;
+
+      left = mid;
+      mid = mid.next;
+
+    }
+
+
+    return dummyHead.next;
+
+};
+
+let head = new ListNode(1)
+let two = new ListNode(2)
+let three = new ListNode(3)
+let four = new ListNode(4)
+head.next = two
+two.next = three
+three.next = four
+four.next = null
+
+[ D, 1H, 2, 3, 4]
+left = D
+mid = 1H
+
 //
