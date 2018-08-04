@@ -42,16 +42,16 @@ function minimalBST(array) {
   function listOfDepths(rootNode) {
     const lists = {};
 
-    const _createLists = (root, counter) => {
+    const _createLists = (root, level) => {
       if(root === null) { return; }
       let newListNode = new ListNode(root.val);
 
-      if(lists[counter] !== undefined) { newListNode.next = lists[counter]; }
-      lists[counter] = newListNode;
+      if(lists[level] !== undefined) { newListNode.next = lists[level]; }
+      lists[level] = newListNode;
 
-      counter++;
-      _createLists(root.left, counter);
-      _createLists(root.right, counter);
+      level++;
+      _createLists(root.left, level);
+      _createLists(root.right, level);
     };
 
     _createLists(rootNode, 1);
