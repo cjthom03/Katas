@@ -31,6 +31,51 @@ function minimalBST(array) {
 // the nodes at each depth (e.g. if you have a tree with depth D, you'll have
 // D linked lists)
 
+  //Use the BSTNodes defined in 4.2 above
+  // Even though this is just a binary tree and not a BST
+
+  function ListNode(val) {
+    this.val = val;
+    this.next = null;
+  }
+
+  function listOfDepths(rootNode) {
+    const lists = {};
+
+    const _createLists = (root, counter) => {
+      if(root === null) { return; }
+      let newListNode = new ListNode(root.val);
+
+      if(lists[counter] !== undefined) { newListNode.next = lists[counter]; }
+      lists[counter] = newListNode;
+
+      counter++;
+      _createLists(root.left, counter);
+      _createLists(root.right, counter);
+    };
+
+    _createLists(rootNode, 1);
+    return lists;
+  }
+
+// TEST CODE
+//   let nodeA = new BSTNode("a");
+//   let nodeB = new BSTNode("b");
+//   let nodeC = new BSTNode("c");
+//   let nodeD = new BSTNode("d");
+//   let nodeE = new BSTNode("e");
+//   let nodeF = new BSTNode("f");
+//   let nodeG = new BSTNode("g");
+//   nodeA.left = nodeB;
+//   nodeA.right = nodeC;
+//   nodeB.left = nodeD;
+//   nodeB.right = nodeE;
+//   nodeC.left = nodeF;
+//   nodeF.left = nodeG;
+//
+//   console.log(nodeA);
+//   const listOfLists = listOfDepths(nodeA);
+//   console.log(listOfLists);
 
 // #======================================================================
 // #======================================================================
